@@ -8,6 +8,10 @@ This service is uses GitHub API. The service function is to getting orgs member 
 
 How to run this project is simple you only just need have prerequisites tools to run the project with only `node index.js`.
 
+### API Documentation
+
+It's included as Postman file on the root of project named `github-org.postman_collection.json`. You can import the file on your Postman / Insomnia client directly;
+
 ### Prerequisites
 
 - PostgreSQL
@@ -72,3 +76,9 @@ To build the image using docker:
 ```bash
 docker build -t [image_name] .
 ```
+
+### Troubleshooting
+
+#### Getting 401 even with correct token header
+
+Check your GitHub token if the token is already blocked or expired by GitHub itself.
