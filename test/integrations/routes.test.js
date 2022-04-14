@@ -4,10 +4,14 @@ const Comments = require('../../models/comments');
 
 const baseUrl = '/orgs'
 
+const headers = {
+  'Content-Type': 'application/json',
+  'token': 'test'
+}
+
 describe('GET /orgs/:orgs/members', () => {
   it('should return 200', async() => {
-    const headers = {}
-
+    console.log(process.env.AUTH_TOKEN)
     await request(app)
       .get(`${baseUrl}/KWRI/members`)
       .set(headers)
@@ -16,7 +20,6 @@ describe('GET /orgs/:orgs/members', () => {
   })
 
   it('should return 500 when error getting member', async() => {
-    const headers = {}
 
     await request(app)
       .get(`${baseUrl}/ASDASDASDASDASDASD/members`)
@@ -27,7 +30,6 @@ describe('GET /orgs/:orgs/members', () => {
 
 describe('GET /orgs/:orgs/comments', () => {
   it('should return 200', async() => {
-    const headers = {}
 
     await request(app)
       .get(`${baseUrl}/KWRI/comments`)
@@ -37,7 +39,6 @@ describe('GET /orgs/:orgs/comments', () => {
   })
 
   it('should return 500 when error getting member', async() => {
-    const headers = {}
 
     await request(app)
       .get(`${baseUrl}/ASDASDASDASDASDASD/members`)
@@ -48,22 +49,17 @@ describe('GET /orgs/:orgs/comments', () => {
 
 describe('POST /orgs/:orgs/comments', () => {
   it('should return 201', async() => {
-    const headers = {
-      'Content-Type': 'application/json'
-    }
-
     await request(app)
       .post(`${baseUrl}/KWRI/comments`)
+      .set(headers)
       .send({
         comment: 'hellow'
       })
-      .set(headers)
       .expect('Content-Type', /json/)
       .expect(201);
   })
 
   it('should return 500 when error create comments', async() => {
-    const headers = {}
 
     // create comment
     await request(app)
@@ -80,7 +76,6 @@ describe('POST /orgs/:orgs/comments', () => {
   })
 
   it('should return 400 when error create comments', async() => {
-    const headers = {}
 
     // create comment
     await request(app)
@@ -93,9 +88,6 @@ describe('POST /orgs/:orgs/comments', () => {
 
 describe('DELETE /orgs/:orgs/comments', () => {
   it('should return 200', async() => {
-    const headers = {
-      'Content-Type': 'application/json'
-    }
 
     await request(app)
       .delete(`${baseUrl}/KWRI/comments`)
@@ -108,7 +100,6 @@ describe('DELETE /orgs/:orgs/comments', () => {
   })
 
   it('should return 500 when error delete member', async() => {
-    const headers = {}
 
     await request(app)
       .delete(`${baseUrl}/ASDASDASDASDASDASD/comments`)
