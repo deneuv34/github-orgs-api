@@ -11,7 +11,7 @@ How to run this project is simple you only just need have prerequisites tools to
 ### Prerequisites
 
 - PostgreSQL
-- Nodejs w/ npm
+- Nodejs v16.x or later with npm
 - Docker (optional)
 
 ### Development Guide
