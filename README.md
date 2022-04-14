@@ -58,3 +58,17 @@ APP_PORT        # app port that listen to, default: 3000
 
 AUTH_TOKEN      # auth token that will be going used on API call/request
 ```
+
+## Additional Information
+
+### Getting GITHUB_TOKEN
+
+To getting GitHub token, generate the token from [Token Settings](https://github.com/settings/tokens). You just allow for read access to organization, and user.
+
+### Docker Build
+
+To build the image using docker:
+
+```bash
+docker build -t [image_name] .
+```
