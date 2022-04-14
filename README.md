@@ -81,4 +81,4 @@ docker build -t [image_name] .
 
 #### Getting 401 even with correct token header
 
-Check your GitHub token if the token is already blocked or expired by GitHub itself.
+Check your GitHub token if the token is already blocked or expired by GitHub itself. If that so, generate the new token.
